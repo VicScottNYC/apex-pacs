@@ -12,6 +12,21 @@ A local medical imaging modernization prototype for Apple silicon macOS. APEX PA
 
 ![OHIF showing a synthetic axial abdomen illustration](docs/screenshots/ohif-viewer.png)
 
+### Docker Compose status
+
+This capture shows the running rebuild stack and its loopback-only HTTP
+binding. Orthanc serves both DICOMweb and OHIF through port 8043.
+
+![Live Docker Compose status for the APEX PACS rebuild stack](docs/screenshots/docker-compose.png)
+
+Run from the project folder to check your own stack:
+
+    docker --context desktop-linux compose -p apex-pacs-rebuild \
+      -f compose.yaml -f compose.rebuild.yaml ps
+
+Look for `Up` and `127.0.0.1:8043->8042/tcp`. The DICOM listener on
+port 4242 is reachable by the test sender on the Docker network.
+
 ## Open the worklist
 
 Install Docker Desktop with Compose, Node.js 22 or later, and Python 3 for fixture generation. Start the isolated rebuild stack using the instructions below, then run:
