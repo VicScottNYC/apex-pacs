@@ -1,0 +1,4 @@
+services:
+  orthanc:
+    ports: !override
+      - "127.0.0.1:8043:8042"

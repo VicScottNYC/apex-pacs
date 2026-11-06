@@ -1,0 +1,20 @@
+name: apex-pacs
+
+services:
+  orthanc:
+    image: orthancteam/orthanc@sha256:06b8baab0c63cd58de5474a74b64096a82ea3f7eab2aa471e217cc48c9ae11bf
+    platform: linux/arm64
+    ports:
+      - "127.0.0.1:8042:8042"
+    environment:
+      ORTHANC__NAME: "APEX PACS Dev"
+      ORTHANC__REMOTE_ACCESS_ALLOWED: "true"
+      ORTHANC__AUTHENTICATION_ENABLED: "false"
+      DICOM_WEB_PLUGIN_ENABLED: "true"
+      OHIF_PLUGIN_ENABLED: "true"
+      ORTHANC__OHIF__DATA_SOURCE: "dicom-web"
+    volumes:
+      - orthanc-data:/var/lib/orthanc/db
+
+volumes:
+  orthanc-data:

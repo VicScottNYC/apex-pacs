@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APEX PACS | Imaging Worklist</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/app.js"></script>
+</head>
+<body>
+<header><a href="/" class="brand"><span class="mark" aria-hidden="true">✚</span> APEX <strong>PACS</strong></a><span class="badge">LOCAL DEVELOPMENT</span></header>
+<main>
+  <p class="eyebrow">IMAGING WORKSPACE / 01</p>
+  <h1>Study worklist</h1>
+  <p class="intro">Find a study in the local Orthanc archive and open it in OHIF.</p>
+  <section class="metrics" aria-label="Archive overview">
+    <div><span>ARCHIVED STUDIES</span><strong id="count">—</strong></div>
+    <div><span>IMAGE INSTANCES</span><strong id="instances">—</strong></div>
+    <div><span>DICOMWEB CONNECTION</span><strong id="connection">Checking</strong></div>
+  </section>
+  <section class="panel" aria-labelledby="archive">
+    <div class="toolbar"><div><h2 id="archive">Archive studies</h2><p id="status" role="status">Loading archive…</p></div><button id="refresh">Refresh</button></div>
+    <div class="filters"><label>Search archive<input id="search" type="search" placeholder="Study, patient ID, or UID"></label><label>Modality<select id="modality"><option value="">All modalities</option></select></label></div>
+    <div class="scroll"><table><thead><tr><th scope="col">Study</th><th scope="col">Patient ID</th><th scope="col">Modality</th><th scope="col">Images</th><th scope="col">Viewer</th></tr></thead><tbody id="rows"></tbody></table></div>
+  </section>
+  <footer>Synthetic or properly de-identified studies only · Development use only</footer>
+</main>
+</body>
+</html>
