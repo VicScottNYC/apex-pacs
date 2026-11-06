@@ -2,6 +2,8 @@
 
 A local medical imaging modernization prototype for Apple silicon macOS. APEX PACS connects legacy DICOM C-STORE ingestion to an Orthanc archive, DICOMweb retrieval, and OHIF rendering. The custom worklist provides search, modality filters, archive counts, and direct study links.
 
+**Why it matters.** When a healthcare organization still relies on imaging equipment or archives that exchange studies over traditional DICOM, adding browser-based access can be difficult. APEX PACS demonstrates an incremental upgrade path: a compatible system can keep sending studies via DICOM C-STORE while the gateway makes those same images searchable and viewable through DICOMweb and OHIF. That gives teams a way to test a modern viewing workflow before deciding which existing systems need to change.
+
 [Project brochure](docs/APEX-PACS-Brochure.pdf)
 
 ## Screenshots
