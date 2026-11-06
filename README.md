@@ -49,8 +49,8 @@ CT-style axial abdomen example from the project folder:
     samples/.rebuild-venv/bin/python scripts/generate_anatomy_demo.py
     curl -fsS --data-binary @samples/apex-anatomy-demo.dcm http://127.0.0.1:8043/instances
 
-Refresh the worklist and open **Synthetic Abdomen - CT-style Demo**
-(`APEX-ANATOMY-001`). The source is an AI-generated anatomy illustration
+Refresh the worklist and open **Synthetic Abdomen - Axial Demo**
+(`APEX-ANATOMY-001`). The source is a synthetic anatomy illustration
 wrapped as a single DICOM Secondary Capture, with no patient data or
 calibrated Hounsfield units. The geometric fixtures below support the
 repeatable pipeline and scrolling checks.

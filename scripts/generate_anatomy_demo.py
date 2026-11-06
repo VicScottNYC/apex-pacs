@@ -14,7 +14,7 @@ OUTPUT = ROOT / "samples" / "apex-anatomy-demo.dcm"
 def main():
     digest = sha256(SOURCE.read_bytes()).hexdigest()
     study_uid, series_uid, instance_uid = (
-        generate_uid(entropy_srcs=["APEX-ANATOMY-v1", digest, kind])
+        generate_uid(entropy_srcs=["APEX-ANATOMY-v2", digest, kind])
         for kind in ("study", "series", "instance")
     )
     meta = FileMetaDataset()
@@ -33,8 +33,8 @@ def main():
     image.StudyTime = "120000"
     image.StudyID = "ANATOMY001"
     image.AccessionNumber = image.ReferringPhysicianName = ""
-    image.StudyDescription = "Synthetic Abdomen - CT-style Demo"
-    image.SeriesDescription = "AI-generated axial anatomy illustration"
+    image.StudyDescription = "Synthetic Abdomen - Axial Demo"
+    image.SeriesDescription = "Synthetic axial anatomy illustration"
     image.ImageType = ["DERIVED", "SECONDARY"]
     image.Modality = "OT"
     image.ConversionType = "SYN"
