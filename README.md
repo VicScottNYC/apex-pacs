@@ -8,7 +8,7 @@ A local medical imaging modernization prototype for Apple silicon macOS. APEX PA
 
 ![APEX PACS worklist with synthetic studies](docs/screenshots/worklist.png)
 
-![OHIF showing a synthetic CT slice](docs/screenshots/ohif-viewer.png)
+![OHIF showing a synthetic axial abdomen illustration](docs/screenshots/ohif-viewer.png)
 
 ## Open the worklist
 
@@ -21,6 +21,22 @@ node worklist/server.mjs
 Open [the worklist](http://127.0.0.1:8080/). It reads the rebuild archive on port 8043 by default. To use the original development archive, run `APEX_ORTHANC_PORT=8042 node worklist/server.mjs`. Use Refresh after importing studies. An empty archive displays an empty state, and a stopped archive displays a connection error.
 
 The worklist server binds to loopback and serves a read-only study list. OHIF loads directly from Orthanc. Stop the worklist with Control+C.
+
+## Load the anatomy demo
+
+With the rebuild stack running, create and import the included
+CT-style axial abdomen example from the project folder:
+
+    python3 -m venv samples/.rebuild-venv
+    samples/.rebuild-venv/bin/python -m pip install 'pydicom==3.0.2' Pillow
+    samples/.rebuild-venv/bin/python scripts/generate_anatomy_demo.py
+    curl -fsS --data-binary @samples/apex-anatomy-demo.dcm http://127.0.0.1:8043/instances
+
+Refresh the worklist and open **Synthetic Abdomen - CT-style Demo**
+(`APEX-ANATOMY-001`). The source is an AI-generated anatomy illustration
+wrapped as a single DICOM Secondary Capture, with no patient data or
+calibrated Hounsfield units. The geometric fixtures below support the
+repeatable pipeline and scrolling checks.
 
 ## Local development runbook
 
